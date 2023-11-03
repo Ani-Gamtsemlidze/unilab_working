@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20px; */
+  border-bottom: 1px solid #ebebeb;
+}
+.header h1 {
+  color: #fff;
+  font-size: 32px;
+  margin-left: 30px;
+  font-weight: 700;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.name p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  /* margin-right: 20px; */
+}
+.user img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 30px;
+}
+
+.card {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border-right: 1px solid #ebebeb;
+
+  padding: 40px 20px;
+}
+
+.name {
+  margin: 0 32px;
+}
