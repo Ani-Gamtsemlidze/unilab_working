@@ -25,3 +25,43 @@
 :root {
   background-color: #090707;
 }
+
+.active {
+  font-weight: 700;
+  border-bottom: 1px solid #fff;
+}
+
+.page-item {
+  background: none;
+}
+
+.pagination .page-link {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 4px;
+  font-size: medium;
+}
+
+.pagination .active > .page-link {
+  background: none;
+}
+.pagination .page-link:hover {
+  color: #fff;
+  background: none;
+}
+
+.pagination {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination .disabled > .page-link {
+  background: none;
+}
+
+.page-link span {
+  font-size: 20px;
+}
