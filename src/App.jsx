@@ -3,7 +3,7 @@ import {
   RouterProvider,
   useParams,
 } from "react-router-dom";
-import Form, { Header } from "./features/form/Form";
+import Form from "./features/form/Form";
 import Landing from "./features/landing/Landing";
 import Login from "./features/login/Login";
 import UserCard from "./features/user_card/UserCard";
@@ -25,19 +25,6 @@ const router = createBrowserRouter([
     path: "/cards",
     element: <UserCard />,
   },
-  // {
-  //   element: <Header />,
-  //   children: [
-  //     {
-  //       path: "/form",
-  //       element: <Form />,
-  //     },
-  //     {
-  //       path: "/cards",
-  //       element: <UserCard />,
-  //     },
-  //   ],
-  // },
 ]);
 function App() {
   return <RouterProvider router={router} />;

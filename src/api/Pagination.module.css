@@ -28,8 +28,11 @@
 
 .left {
   position: absolute;
+  color: #fff;
   /* left: 36%; */
   /* top: 8px; */
+  font-size: 30px;
+
   left: 8px;
   width: 17px;
   height: 17px;
@@ -64,4 +67,13 @@
   justify-content: center;
   align-items: center;
   min-width: 300px;
+}
+
+.container img {
+  cursor: pointer;
+}
+
+.arr {
+  color: red;
+  font-size: 30px;
 }

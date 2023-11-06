@@ -1,92 +1,75 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+// import { useEffect, useRef, useState } from "react";
+// import { Link, useParams } from "react-router-dom";
 import styles from "./Form.module.css";
 
-export function Header({ setCurrentPage, currentPage }) {
-  const [isPopUp, setIsPopUp] = useState(false);
-  const image = localStorage.getItem("image");
-  const name = localStorage.getItem("name");
+import filter from "../../assets/images/filter.svg";
+import search from "../../assets/images/search.svg";
 
-  // console.log(id);
+import Header from "../../layouts/Header";
+import Users from "../user_card/Users";
+import Pagination from "../../api/Pagination";
 
-  const popRef = useRef(null);
-  const imageRef = useRef(null);
+import users from "../../data/users.json";
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (
-        isPopUp &&
-        popRef.current &&
-        !popRef.current.contains(e.target) &&
-        imageRef.current &&
-        !imageRef.current.contains(e.target)
-      ) {
-        setIsPopUp(false);
-      }
-    }
+import { useState } from "react";
 
-    document.addEventListener("click", handleClickOutside);
+function Form() {
+  const currentCount = 1;
+  const cardsCount = 10;
 
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isPopUp]);
+  const [currentPage, setCurrentPage] = useState(currentCount);
+  const [cardPerPage, setCardPerPage] = useState(cardsCount);
+  // const [cards, setCards] = useState([]);
 
-  function shownPopUp() {
-    setIsPopUp(!isPopUp);
+  const indexOfLastCard = currentPage * cardPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardPerPage;
+  const currentUsers = users.slice(indexOfFirstCard, indexOfLastCard);
+  const [isActive, setIsActive] = useState(false);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+    console.log(newPage);
+  };
+
+  function firstElement() {
+    setCurrentPage(currentCount);
+    // setIsActive(true);
+  }
+  function lastElement() {
+    setCurrentPage(cardsCount);
   }
 
   return (
-    <header className={styles.header}>
-      <Link className={styles.form} to="/form">
-        Form
-      </Link>
-      <div className={styles.user}>
-        <Link
-          // onClick={() => setCurrentPage(id)}
-          className={styles.card}
-          to={`/cards`}
-        >
-          User Cards
-        </Link>
-        <div className={styles.name}>
-          <p>{name}</p>
-        </div>
-        <div style={{ position: "relative" }}>
-          <img ref={imageRef} onClick={shownPopUp} src={image} />
-          {isPopUp ? (
-            <div className={styles.pop_up} ref={popRef}>
-              <div>
-                <p className={styles.question}>
-                  {name}, <br /> do you want to leave the page?
-                </p>
-              </div>
-              <div>
-                <button
-                  className={styles.btn}
-                  onClick={() => setIsPopUp(false)}
-                >
-                  Cancel
-                </button>
-                <Link className={styles.logout} to="/">
-                  log out
-                </Link>
-              </div>
-            </div>
-          ) : null}
-        </div>
-      </div>
-    </header>
-  );
-}
-
-function Form() {
-  return (
     <>
       <Header />
-      <main>this is form</main>
+      <main className={styles.main}>
+        <section className={styles.section}>
+          <div className={styles.filter}>
+            <img src={filter} />
+            <p>filter</p>
+          </div>
+          <div className={styles.search}>
+            <img src={search} />
+          </div>
+        </section>
+        {/* <section className={styles.users}> */}
+        <Users currentUsers={currentUsers} />
+        <Pagination
+          isActive={isActive}
+          setCurrentPage={handlePageChange}
+          currentPage={currentPage}
+          lastElement={lastElement}
+          firstElement={firstElement}
+        />
+
+        {/* </section> */}
+      </main>
     </>
   );
 }
 
 export default Form;
+// currentPage,
+// setCurrentPage,
+// lastElement,
+// firstElement,

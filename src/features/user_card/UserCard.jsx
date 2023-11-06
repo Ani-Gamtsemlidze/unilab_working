@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header } from "../form/Form";
+// import { Header } from "../form/Form";
 import styles from "./UserCard.module.css";
 import Cards from "../../api/Cards";
 import { useParams } from "react-router-dom";
 import leftArrow from "../../assets/images/chevrons-left.png";
-import PaginationPage from "../../api/Pagination";
+// import PaginationPage from "../../api/Pagination";
+import Header from "../../layouts/Header";
+import Pagination from "../../api/Pagination";
 
 function UserCard({ lastElement }) {
   const currentCount = 1;
@@ -57,8 +59,7 @@ function UserCard({ lastElement }) {
       <main className={styles.main}>
         <Cards cards={currentCards} />
       </main>
-      {/* <img src={leftArrow} onClick={lastElement} /> */}
-      <PaginationPage
+      <Pagination
         cardPerPage={cardPerPage}
         currentPage={currentPage} // Pass the currentPage as a prop
         setCurrentPage={handlePageChange} // Pass the page change handler

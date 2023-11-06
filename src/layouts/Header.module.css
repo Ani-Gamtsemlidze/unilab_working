@@ -1,0 +1,91 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+}
+.form {
+  color: #fff;
+  font-size: 24px;
+  margin-left: 30px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+.name p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+.user img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.card {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border-right: 1px solid #ebebeb;
+
+  padding: 40px 20px;
+}
+
+.name {
+  margin: 0 32px;
+}
+
+.pop_up {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  background-color: #4980c0;
+  color: black;
+  right: 23px;
+  top: 50%;
+  transform: translateY(35%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.4s;
+}
+
+.logout {
+  text-decoration: none;
+  color: #4980c0;
+  font-weight: 700;
+  background-color: #ebebeb;
+  font-size: 15px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.btn {
+  background: none;
+  padding: 8px;
+  font-size: 15px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.question {
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  color: #fff;
+}

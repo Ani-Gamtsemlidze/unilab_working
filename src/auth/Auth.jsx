@@ -30,18 +30,21 @@ function Auth() {
       const imgUrl = URL.createObjectURL(file);
       setIsPhoto(true);
       setUserImage(imgUrl); // Update the userImage state with the new image URL
-      localStorage.setItem("image", imgUrl);
+      // localStorage.setItem("image", imgUrl);
       console.log(imgUrl);
     }
   }
 
+  const enteredName = userName.current?.value;
+  const enteredImage = image.current?.value;
   function addName() {
-    const enteredName = userName.current.value;
-    localStorage.setItem("name", enteredName);
     console.log(enteredName);
   }
 
   function handleSubmit(e) {
+    localStorage.setItem("name", enteredName);
+    localStorage.setItem("image", userImage);
+
     setIsInfo(false);
     e.preventDefault();
     if (image.current.value && userName.current.value) {
@@ -84,3 +87,7 @@ function Auth() {
 }
 
 export default Auth;
+
+/**
+ * layouts- header,
+ */

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import { dropEllipsis } from "react-responsive-pagination/narrowBehaviour";
 import "react-responsive-pagination/themes/classic.css";
@@ -11,13 +11,19 @@ function Pagination({
   setCurrentPage,
   lastElement,
   firstElement,
+  isActive,
 }) {
   const totalPages = 10;
   return (
     <div className={styles.page_fluid}>
       <div className={styles.container}>
-        <img className={styles.left} src={leftArrow} onClick={lastElement} />
-
+        <img className={styles.left} src={leftArrow} onClick={firstElement} />
+        {/* <span
+          onClick={lastElement}
+          className={isActive ? styles.arr : styles.left}
+        >
+          &#171;
+        </span> */}
         <ResponsivePagination
           narrowBehaviour={dropEllipsis}
           current={currentPage}
@@ -26,7 +32,8 @@ function Pagination({
           nextLabel={">"}
           previousLabel={"<"}
         />
-        <img className={styles.right} src={rightArrow} onClick={firstElement} />
+
+        <img onClick={lastElement} className={styles.right} src={rightArrow} />
       </div>
     </div>
   );
