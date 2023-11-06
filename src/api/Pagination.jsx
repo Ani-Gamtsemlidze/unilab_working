@@ -12,8 +12,9 @@ function Pagination({
   lastElement,
   firstElement,
   isActive,
+  total,
 }) {
-  const totalPages = 10;
+  // const totalPages = 5;
   return (
     <div className={styles.page_fluid}>
       <div className={styles.container}>
@@ -27,7 +28,7 @@ function Pagination({
         <ResponsivePagination
           narrowBehaviour={dropEllipsis}
           current={currentPage}
-          total={totalPages}
+          total={total}
           onPageChange={setCurrentPage}
           nextLabel={">"}
           previousLabel={"<"}
